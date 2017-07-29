@@ -1,0 +1,4 @@
+[submodule "themes.alberta"]
+	ignore = dirty
+[submodule "themes.icarus"]
+	ignore = dirty

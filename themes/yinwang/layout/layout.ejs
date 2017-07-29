@@ -1,0 +1,26 @@
+<html>
+<%- partial('_partial/head')%>
+<body
+	<% if(is_home()){ %>
+	onload="changeNavActive(0);"
+	<% }else if(is_category()){ %>
+	onload="changeNavActive(1);"
+	<% } else { %>
+	onload="changeNavActive(0);"
+	<% } %>
+>
+
+<!-- 点击随笔时页面地址中包含categories/essay/,所以判断路径中没有categories默认布局文件，若包含则加载_partial/essay.ejs布局-->
+<% if(page.path.indexOf('categories')==-1){ %>
+<%- body %>
+<% }else{ %>
+<%- partial('_partial/essay', {pagination: 1, index: true})%>
+<% } %>
+
+<%if(is_home()||is_category()){%>
+<!--加载导航栏所需js文件-->
+<%- partial('_partial/afterfooter')%>
+<%}%>
+
+</body>
+</html>
